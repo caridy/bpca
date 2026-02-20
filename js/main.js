@@ -22,7 +22,8 @@
     { src: 'images/gallery/DJI_0372.jpg', alt: 'Brickell Place and Miami skyline' },
     { src: 'images/gallery/DJI_0787.jpg', alt: 'Panoramic view of Brickell Place' },
     { src: 'images/gallery/DJI_0789.jpg', alt: 'Waterfront living at Brickell Place' },
-    { src: 'images/gallery/DJI_0790.jpg', alt: 'Brickell Place marina and facilities' }
+    { src: 'images/gallery/DJI_0790.jpg', alt: 'Brickell Place marina and facilities' },
+    { src: 'images/gallery/BBQ.jpg', alt: 'Brickell Place outdoor BBQ and seating area' }
   ];
 
   // ============================================
