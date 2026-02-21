@@ -11,19 +11,13 @@
   // ============================================
   
   const GALLERY_IMAGES = [
-    { src: 'images/gallery/DJI_0282.jpg', alt: 'Aerial view of Brickell Place waterfront and marina' },
-    { src: 'images/gallery/DJI_0283.jpg', alt: 'Brickell Place towers and marina from above' },
     { src: 'images/gallery/DJI_0284.jpg', alt: 'Waterfront view of Brickell Place' },
-    { src: 'images/gallery/DJI_0285.jpg', alt: 'Brickell Place community overview' },
-    { src: 'images/gallery/DJI_0286.jpg', alt: 'Marina and boat slips at Brickell Place' },
-    { src: 'images/gallery/DJI_0369.jpg', alt: 'Aerial perspective of both towers' },
-    { src: 'images/gallery/DJI_0370.jpg', alt: 'Brickell Place waterfront amenities' },
     { src: 'images/gallery/DJI_0371.jpg', alt: 'Community facilities and grounds' },
-    { src: 'images/gallery/DJI_0372.jpg', alt: 'Brickell Place and Miami skyline' },
-    { src: 'images/gallery/DJI_0787.jpg', alt: 'Panoramic view of Brickell Place' },
-    { src: 'images/gallery/DJI_0789.jpg', alt: 'Waterfront living at Brickell Place' },
-    { src: 'images/gallery/DJI_0790.jpg', alt: 'Brickell Place marina and facilities' },
-    { src: 'images/gallery/BBQ.jpg', alt: 'Brickell Place outdoor BBQ and seating area' }
+    { src: 'images/gallery/IMG_6137.jpeg', alt: 'Brickell Place gallery photo 1' },
+    { src: 'images/gallery/IMG_6138.jpeg', alt: 'Brickell Place gallery photo 2' },
+    { src: 'images/gallery/IMG_6139.jpeg', alt: 'Brickell Place gallery photo 3' },
+    { src: 'images/gallery/IMG_6140.jpeg', alt: 'Brickell Place gallery photo 4' },
+    { src: 'images/gallery/IMG_6141.jpeg', alt: 'Brickell Place gallery photo 5' }
   ];
 
   // ============================================
