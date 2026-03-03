@@ -379,3 +379,14 @@ li {
     padding: 1rem;
   }
 }
+
+
+.page-nav a.lang-switch {
+  background: var(--bpca-navy);
+  color: #fff;
+  border-color: rgba(15, 45, 58, 0.35);
+}
+
+.page-nav a.lang-switch:hover {
+  background: #143845;
+}

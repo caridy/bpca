@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Páginas informativas para propietarios (Limited Proxy) - marzo 2026.">
+  <title>BPCA Limited Proxy | Marzo 2026</title>
+  <link rel="icon" type="image/png" href="./assets/images/BPCA-LOGO.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-row">
+      <div class="brand">
+        <img src="./assets/images/BPCA-LOGO.png" alt="Logo de Brickell Place Condominium Association">
+        <div>
+          <h1>Brickell Place Condominium Association</h1>
+          <p>Información para propietarios (Limited Proxy)</p>
+        </div>
+      </div>
+      <nav class="page-nav" aria-label="Navegación">
+        <a href="#questions">Preguntas</a>
+        <a href="#notes">Notas</a>
+        <a href="./index.html" class="lang-switch" lang="en">🌐 English</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero hero-pool" id="top">
+    <div class="container hero-content">
+      <p class="hero-tag">Marzo 2026</p>
+      <h2>Páginas de preguntas (Limited Proxy)</h2>
+      <p>Seleccione la pregunta que desea revisar. Cada página es una referencia independiente para esa pregunta específica del Limited Proxy.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <section id="questions">
+        <article class="block">
+          <p class="kicker">Seleccione una pregunta</p>
+          <h3>Preguntas</h3>
+          <div class="grid-2" style="margin-top:0.9rem;">
+            <div class="block" style="box-shadow:none;">
+              <p class="kicker">Pregunta</p>
+              <h3 id="q1-text" style="margin-top:0;">¿APRUEBA LAS ALTERACIONES MATERIALES Y MEJORAS EN LAS ÁREAS DE LA PISCINA, LA TERRAZA DE LA PISCINA Y EL PORTE COCHERE/ROTUNDA?</h3>
+              <p class="muted">Contexto, imágenes, alcance, estimados de referencia y fases/fondos para esta pregunta.</p>
+              <div class="resource-links">
+                <a href="./question-1-es.html">Abrir página</a>
+              </div>
+            </div>
+
+            <div class="block" style="box-shadow:none;">
+              <p class="kicker">Pregunta</p>
+              <h3 id="q2-text" style="margin-top:0;">¿APRUEBA UNA ALTERACIÓN MATERIAL A LA FACHADA DE TODAS LAS UNIDADES TOWNHOUSE QUE DAN AL ÁREA DE LA PISCINA, SEGÚN SE MUESTRA EN LA ILUSTRACIÓN A CONTINUACIÓN?</h3>
+              <p class="muted">Contexto de fachada, planos revisados (privacidad) y nota de asignación de costos para esta pregunta.</p>
+              <div class="resource-links">
+                <a href="./question-2-es.html">Abrir página</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="notes">
+        <article class="block">
+          <p class="kicker">Notas</p>
+          <h3>Cómo usar estas páginas</h3>
+          <ul>
+            <li>El texto mostrado se toma de la pregunta en la página correspondiente.</li>
+            <li>Las dos páginas se mantienen separadas para evitar confusión y mantener cada decisión clara.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright &copy; 2026 Brickell Place Condominium Association. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadQuestionText(targetId, url) {
+      try {
+        const resp = await fetch(url, { cache: 'no-cache' });
+        const text = await resp.text();
+        const match = text.match(/<h2>([\s\S]*?)<\/h2>/i);
+        if (match) {
+          document.getElementById(targetId).innerHTML = match[1].trim();
+        }
+      } catch (_) {
+        // leave fallback
+      }
+    }
+    loadQuestionText('q1-text', './question-1-es.html');
+    loadQuestionText('q2-text', './question-2-es.html');
+  </script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Brickell Place February 2026 Limited Proxy owner information pages.">
-  <title>BPCA Limited Proxy | February 2026</title>
+  <meta name="description" content="Brickell Place March 2026 Limited Proxy owner information pages.">
+  <title>BPCA Limited Proxy | March 2026</title>
   <link rel="icon" type="image/png" href="./assets/images/BPCA-LOGO.png">
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -21,13 +21,14 @@
       <nav class="page-nav" aria-label="Page navigation">
         <a href="#questions">Questions</a>
         <a href="#notes">Notes</a>
+              <a href="./index-es.html" class="lang-switch" lang="es">🌐 Español</a>
       </nav>
     </div>
   </header>
 
   <section class="hero hero-pool" id="top">
     <div class="container hero-content">
-      <p class="hero-tag">February 2026</p>
+      <p class="hero-tag">March 2026</p>
       <h2>Limited Proxy Question Pages</h2>
       <p>Select the Limited Proxy question you want to review. Each page is a stand-alone reference for that specific Limited Proxy question.</p>
     </div>
@@ -42,7 +43,7 @@
           <div class="grid-2" style="margin-top:0.9rem;">
             <div class="block" style="box-shadow:none;">
               <p class="kicker">Question</p>
-              <h3 style="margin-top:0;">DO YOU APPROVE OF THE MATERIAL ALTERATIONS AND IMPROVEMENTS TO THE POOL, POOL DECK &amp; PORTE COCHERE/ROTUNDA AREAS?</h3>
+              <h3 id="q1-text" style="margin-top:0;">DO YOU APPROVE OF THE MATERIAL ALTERATIONS AND IMPROVEMENTS TO THE POOL, POOL DECK &amp; PORTE COCHERE/ROTUNDA AREAS?</h3>
               <p class="muted">Project context, visuals, scope boundaries, planning estimates, and phasing/funding overview for this Limited Proxy question.</p>
               <div class="resource-links">
                 <a href="./question-1.html">Open Question Page</a>
@@ -51,7 +52,7 @@
 
             <div class="block" style="box-shadow:none;">
               <p class="kicker">Question</p>
-              <h3 style="margin-top:0;">DO YOU APPROVE OF A MATERIAL ALTERATION TO THE FA&Ccedil;ADE OF ALL TOWNHOUSE UNITS FACING THE POOL AREA AS SHOWN IN THE ILLUSTRATION BELOW?</h3>
+              <h3 id="q2-text" style="margin-top:0;">DO YOU APPROVE OF A MATERIAL ALTERATION TO THE FA&Ccedil;ADE OF ALL TOWNHOUSE UNITS FACING THE POOL AREA AS SHOWN IN THE ILLUSTRATION BELOW?</h3>
               <p class="muted">Townhouse facade context, revised privacy-focused plan sheets, and funding note for this Limited Proxy question.</p>
               <div class="resource-links">
                 <a href="./question-2.html">Open Question Page</a>
@@ -79,5 +80,23 @@
       <p>Copyright &copy; 2026 Brickell Place Condominium Association. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    async function loadQuestionText(targetId, url) {
+      try {
+        const resp = await fetch(url, { cache: 'no-cache' });
+        const text = await resp.text();
+        const match = text.match(/<h2>([\s\S]*?)<\/h2>/i);
+        if (match) {
+          document.getElementById(targetId).innerHTML = match[1].trim();
+        }
+      } catch (_) {
+        // leave fallback
+      }
+    }
+    loadQuestionText('q1-text', './question-1.html');
+    loadQuestionText('q2-text', './question-2.html');
+  </script>
+
 </body>
 </html>
