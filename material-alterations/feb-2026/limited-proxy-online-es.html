@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enviar su Limited Proxy en línea (SimplyVoting) | Brickell Place</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .steps { display: grid; gap: 1rem; }
+    .step { padding: 1.15rem 1.25rem; }
+    .step-head { display:flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 999px;
+      display: grid; place-items: center;
+      background: var(--bpca-navy);
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      flex: 0 0 auto;
+    }
+    .step-title { margin: 0; font-size: 1.08rem; color: var(--bpca-navy); }
+    .step-sub { margin: 0.25rem 0 0; color: var(--bpca-muted); }
+
+    .annotated {
+      position: relative;
+      border-radius: calc(var(--radius) - 2px);
+      overflow: hidden;
+      border: 1px solid var(--bpca-border);
+      box-shadow: 0 10px 24px rgba(11, 40, 56, 0.08);
+      margin-top: 0.9rem;
+      background: #fff;
+    }
+
+    .annotated img { display:block; width: 100%; height: auto; }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .callout {
+      position: absolute;
+      left: var(--left);
+      top: var(--top);
+      max-width: min(290px, 70%);
+      background: rgba(255, 246, 214, 0.97);
+      border: 2px solid rgba(255, 146, 0, 0.85);
+      box-shadow: 0 14px 34px rgba(11, 40, 56, 0.18);
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      backdrop-filter: blur(6px);
+      pointer-events: none;
+    }
+
+    /* Callout pointer ("tooltip arrow" / caret) */
+    .callout.tail-bottom::before,
+    .callout.tail-bottom::after,
+    .callout.tail-left::before,
+    .callout.tail-left::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* Bottom pointer: points down to the UI element below the tooltip */
+    .callout.tail-bottom::before {
+      left: var(--tail-x, 28px);
+      bottom: -14px;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 14px solid rgba(255, 146, 0, 0.85);
+    }
+
+    .callout.tail-bottom::after {
+      left: calc(var(--tail-x, 28px) + 1px);
+      bottom: -12px;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 13px solid rgba(255, 246, 214, 0.97);
+    }
+
+    /* Left pointer: points left to the UI element beside the tooltip */
+    .callout.tail-left::before {
+      left: -14px;
+      top: var(--tail-y, 24px);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-right: 14px solid rgba(255, 146, 0, 0.85);
+    }
+
+    .callout.tail-left::after {
+      left: -12px;
+      top: calc(var(--tail-y, 24px) + 1px);
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-right: 13px solid rgba(255, 246, 214, 0.97);
+    }
+
+    .callout strong { display:block; font-size: 0.85rem; color: var(--bpca-navy); }
+    .callout p { margin: 0.25rem 0 0; font-size: 0.88rem; color: var(--bpca-text); line-height: 1.35; }
+
+    .tip {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      border-left: 4px solid var(--bpca-sea);
+      padding: 0.75rem 0.9rem;
+      background: linear-gradient(180deg, rgba(223, 240, 244, 0.85), rgba(244, 247, 250, 0.85));
+      border-radius: 12px;
+      margin-top: 0.85rem;
+    }
+
+    .tip b { color: var(--bpca-navy); }
+
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9em;
+      border: 1px solid rgba(11, 40, 56, 0.18);
+      border-bottom-color: rgba(11, 40, 56, 0.3);
+      padding: 0.08rem 0.35rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.8);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .callout { max-width: 82%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-row">
+      <div class="brand">
+        <img src="./assets/images/BPCA-LOGO.png" alt="Logo de Brickell Place" />
+        <div>
+          <h1>Brickell Place Condominium Association</h1>
+          <p>Alteraciones Materiales (Marzo 2026)</p>
+        </div>
+      </div>
+
+      <nav class="page-nav" aria-label="Navegación">
+        <a href="./index-es.html">Volver a las preguntas</a>
+        <a href="#steps">Pasos</a>
+        <a href="#help">Ayuda</a>
+        <a href="./limited-proxy-online.html" class="lang-switch" lang="en">🌐 English</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero hero-pool" id="top">
+    <div class="container hero-content">
+      <p class="hero-tag">Marzo 2026</p>
+      <h2>Enviar su Limited Proxy en línea (SimplyVoting)</h2>
+      <p>Esta página es una guía visual. El portal usa etiquetas como “Vote Now”, “Continue” y “Confirm”. Siga los pasos a continuación para enviar sus selecciones.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <section class="block" id="steps">
+        <p class="kicker">Paso a paso</p>
+        <h3>Guía de envío en línea</h3>
+        <p class="muted">Si va a enviar en línea, normalmente recibirá un correo de SimplyVoting con un enlace y sus credenciales.</p>
+        <div class="tip">
+          <div>
+            <b>Consejo:</b> En un teléfono, puede ser útil rotar a horizontal para leer mejor las capturas.
+          </div>
+        </div>
+
+        <div class="steps" style="margin-top: 1rem;">
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">1</div>
+                <div>
+                  <p class="step-title">Abra el correo de SimplyVoting</p>
+                  <p class="step-sub">Use el <b>enlace directo</b> del correo (recomendado). Si hace falta, también puede usar el enlace del sitio + Elector ID / Password.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-01-email.jpg" alt="Correo de SimplyVoting con el enlace al sitio y Elector ID / Password" />
+              <div class="callout tail-bottom" style="--left: 54%; --top: 63%;">
+                <strong>Enlace directo (recomendado)</strong>
+                <p>Use el enlace directo para entrar al portal de inmediato (sin ingresar credenciales manualmente).</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">2</div>
+                <div>
+                  <p class="step-title">En el Dashboard, seleccione el elemento de Material Alterations</p>
+                  <p class="step-sub">Busque <span class="kbd">Vote Now – 2026 Material Alterations &amp; Improvements</span>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-02-dashboard.jpg" alt="Dashboard de SimplyVoting con el enlace Vote Now" />
+
+              <div class="callout tail-left" style="--left: 56%; --top: 62%;">
+                <strong>Haga clic en “Vote Now”</strong>
+                <p>Seleccione el elemento de Material Alterations para comenzar.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">3</div>
+                <div>
+                  <p class="step-title">Responda la Pregunta 1 (Yes o No)</p>
+                  <p class="step-sub">Seleccione una opción para la Pregunta 1 y continúe.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-03-question-1.jpg" alt="Pantalla de la Pregunta 1 con opciones Yes/No" />
+
+              <div class="callout tail-bottom" style="--left: 52%; --top: 58%;">
+                <strong>Seleccione “Yes” o “No”</strong>
+                <p>Elija una opción para la Pregunta 1. Luego haga clic en <span class="kbd">Continue</span> (abajo a la derecha).</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">4</div>
+                <div>
+                  <p class="step-title">Responda la Pregunta 2 (Yes o No), y continúe</p>
+                  <p class="step-sub">Seleccione una opción para la Pregunta 2 y haga clic en <span class="kbd">Continue</span>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-04-question-2.jpg" alt="Pantalla de la Pregunta 2 con opciones Yes/No y botón Continue" />
+
+              <div class="callout tail-left" style="--left: 52%; --top: 46%;">
+                <strong>Seleccione “Yes” o “No”</strong>
+                <p>Elija una opción para la Pregunta 2.</p>
+              </div>
+
+              <div class="callout tail-bottom" style="--left: 60%; --top: 72%; --tail-x: 78%;">
+                <strong>Haga clic en Continue</strong>
+                <p>Avance a la pantalla de revisión.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">5</div>
+                <div>
+                  <p class="step-title">Revise sus selecciones y confirme</p>
+                  <p class="step-sub">Si todo está correcto, haga clic en <span class="kbd">Confirm</span>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-05-review.jpg" alt="Pantalla de revisión con botón Confirm" />
+
+              <div class="callout tail-bottom" style="--left: 60%; --top: 70%; --tail-x: 78%;">
+                <strong>Haga clic en Confirm</strong>
+                <p>Después de confirmar, es posible que no pueda cambiar sus selecciones.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="block step" style="box-shadow:none;">
+            <div class="step-head">
+              <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <div class="step-num">6</div>
+                <div>
+                  <p class="step-title">Pantalla de éxito</p>
+                  <p class="step-sub">Su envío queda registrado. Haga clic en <span class="kbd">Back to Dashboard</span> al finalizar.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="annotated">
+              <img src="./assets/images/limited-proxy-online/step-06-success.jpg" alt="Pantalla de éxito con botón Back to Dashboard" />
+
+              <div class="callout tail-bottom" style="--left: 35%; --top: 62%; --tail-x: 50%;">
+                <strong>Back to Dashboard</strong>
+                <p>Puede volver al dashboard y (si está disponible) ver recibos.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="block" id="help">
+        <p class="kicker">Ayuda</p>
+        <h3>¿Necesita asistencia?</h3>
+        <ul>
+          <li>Si no recibió el correo de SimplyVoting, verifique su correo registrado con la oficina de la Asociación y revise spam/correo no deseado.</li>
+          <li>Si el portal se ve pequeño en el teléfono, pruebe un navegador en laptop/escritorio.</li>
+          <li>Si tiene preguntas sobre las páginas de las preguntas del Limited Proxy, vuelva a las páginas de preguntas para ver el contexto y las imágenes.</li>
+        </ul>
+        <div class="resource-links" style="margin-top:0.8rem;">
+          <a href="./index-es.html">Volver a las páginas de preguntas</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright &copy; 2026 Brickell Place Condominium Association. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
